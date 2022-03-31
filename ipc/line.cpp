@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <chrono>
-#include <optional>
 #include <utility>
 
 
@@ -43,8 +42,9 @@ bool Line::wait_rising(std::optional<std::chrono::milliseconds> const timeout)
 
     if (!timeout)
     {
-        wait_low(std::nullopt);
-        wait_high(std::nullopt);
+        wait_low({});
+        wait_high({});
+        return true;
     }
 
     auto const start = std::chrono::steady_clock::now();
@@ -66,8 +66,9 @@ bool Line::wait_falling(std::optional<std::chrono::milliseconds> const timeout)
 
     if (!timeout)
     {
-        wait_high(std::nullopt);
-        wait_low(std::nullopt);
+        wait_high({});
+        wait_low({});
+        return true;
     }
 
     auto const start = std::chrono::steady_clock::now();
