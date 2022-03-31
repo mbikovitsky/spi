@@ -1,6 +1,7 @@
 #include "event.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <stdexcept>
 #include <utility>
 
@@ -72,6 +73,13 @@ bool Event::wait(std::optional<std::chrono::milliseconds> const timeout)
     DWORD milliseconds = INFINITE;
     if (timeout)
     {
+        using namespace std::literals::chrono_literals;
+
+        if (*timeout < 0ms)
+        {
+            throw std::invalid_argument("Negative timeout");
+        }
+
         milliseconds = static_cast<DWORD>(
             std::min(static_cast<decltype(timeout)::value_type::rep>(INFINITE), timeout->count()));
     }

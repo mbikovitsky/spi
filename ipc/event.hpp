@@ -7,6 +7,9 @@
 #include <Windows.h>
 
 
+/**
+ * Represents a Windows event object.
+ */
 class Event
 {
 private:
