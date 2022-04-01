@@ -25,7 +25,7 @@ std::optional<std::uint8_t> SPISlave::transact(std::uint8_t const byte)
             bus_.miso.set_low();
         }
 
-        if (!bus_.sclk.wait_high(half_clock_))
+        if (!bus_.sclk.wait_high(half_clock_ * 2))
         {
             return {};
         }
@@ -35,7 +35,7 @@ std::optional<std::uint8_t> SPISlave::transact(std::uint8_t const byte)
             read_byte |= current_bit;
         }
 
-        if (!bus_.sclk.wait_low(half_clock_))
+        if (!bus_.sclk.wait_low(half_clock_ * 2))
         {
             return {};
         }
