@@ -164,12 +164,14 @@
     <ClInclude Include="line.hpp" />
     <ClInclude Include="spi_bus.hpp" />
     <ClInclude Include="spi_master.hpp" />
+    <ClInclude Include="spi_slave.hpp" />
     <ClInclude Include="util.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="event.cpp" />
     <ClCompile Include="line.cpp" />
     <ClCompile Include="spi_master.cpp" />
+    <ClCompile Include="spi_slave.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
