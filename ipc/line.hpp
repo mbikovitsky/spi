@@ -42,14 +42,4 @@ public:
      * Waits until the line becomes high.
      */
     bool wait_high(Timeout timeout);
-
-    /**
-     * Waits for a rising edge (low-to-high transition) on the line.
-     */
-    bool wait_rising(Timeout timeout);
-
-    /**
-     * Waits for a falling edge (high-to-low transition) on the line.
-     */
-    bool wait_falling(Timeout timeout);
 };

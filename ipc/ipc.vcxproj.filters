@@ -9,7 +9,6 @@
   <ItemGroup>
     <ClInclude Include="event.hpp" />
     <ClInclude Include="line.hpp" />
-    <ClInclude Include="util.hpp" />
     <ClInclude Include="common.hpp" />
     <ClInclude Include="spi_master.hpp" />
     <ClInclude Include="spi_bus.hpp" />

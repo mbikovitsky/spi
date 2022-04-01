@@ -165,7 +165,6 @@
     <ClInclude Include="spi_bus.hpp" />
     <ClInclude Include="spi_master.hpp" />
     <ClInclude Include="spi_slave.hpp" />
-    <ClInclude Include="util.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="event.cpp" />
