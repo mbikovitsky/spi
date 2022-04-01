@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="event.cpp" />
+    <ClCompile Include="line.cpp" />
+    <ClCompile Include="spi_master.cpp" />
+    <ClCompile Include="spi_slave.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="event.hpp" />
+    <ClInclude Include="line.hpp" />
+    <ClInclude Include="common.hpp" />
+    <ClInclude Include="spi_master.hpp" />
+    <ClInclude Include="spi_bus.hpp" />
+    <ClInclude Include="spi_slave.hpp" />
+  </ItemGroup>
+</Project>
