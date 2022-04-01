@@ -1,8 +1,9 @@
 #include "line.hpp"
 
-#include <algorithm>
 #include <chrono>
 #include <utility>
+
+#include "util.hpp"
 
 
 Line::Line(Event low, Event high) : low_(std::move(low)), high_(std::move(high)) {}
@@ -38,48 +39,18 @@ bool Line::wait_high(std::optional<std::chrono::milliseconds> const timeout)
 
 bool Line::wait_rising(std::optional<std::chrono::milliseconds> const timeout)
 {
-    using namespace std::literals::chrono_literals;
-
-    if (!timeout)
-    {
-        wait_low({});
-        wait_high({});
-        return true;
-    }
-
-    auto const start = std::chrono::steady_clock::now();
-    if (!wait_low(timeout))
-    {
-        return false;
-    }
-    auto const elapsed = std::chrono::steady_clock::now() - start;
-
-    auto const remaining_timeout =
-        std::max(std::chrono::duration_cast<std::chrono::milliseconds>(*timeout - elapsed), 0ms);
-
-    return wait_high(remaining_timeout);
+    static_assert(bool {} == false);
+    return combined_timeout(
+        timeout,
+        [this](auto const t) { return wait_low(t); },
+        [this](auto const t) { return wait_high(t); });
 }
 
 bool Line::wait_falling(std::optional<std::chrono::milliseconds> const timeout)
 {
-    using namespace std::literals::chrono_literals;
-
-    if (!timeout)
-    {
-        wait_high({});
-        wait_low({});
-        return true;
-    }
-
-    auto const start = std::chrono::steady_clock::now();
-    if (!wait_high(timeout))
-    {
-        return false;
-    }
-    auto const elapsed = std::chrono::steady_clock::now() - start;
-
-    auto const remaining_timeout =
-        std::max(std::chrono::duration_cast<std::chrono::milliseconds>(*timeout - elapsed), 0ms);
-
-    return wait_low(remaining_timeout);
+    static_assert(bool {} == false);
+    return combined_timeout(
+        timeout,
+        [this](auto const t) { return wait_high(t); },
+        [this](auto const t) { return wait_low(t); });
 }

@@ -84,7 +84,7 @@ bool Event::wait(std::optional<std::chrono::milliseconds> const timeout)
             std::min(static_cast<decltype(timeout)::value_type::rep>(INFINITE), timeout->count()));
     }
 
-    switch (auto const wait_result = WaitForSingleObject(event_, milliseconds))
+    switch (WaitForSingleObject(event_, milliseconds))
     {
     case WAIT_OBJECT_0:
         return true;

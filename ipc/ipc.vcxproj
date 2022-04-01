@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="event.hpp" />
     <ClInclude Include="line.hpp" />
+    <ClInclude Include="util.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="event.cpp" />
