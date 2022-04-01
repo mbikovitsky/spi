@@ -2,12 +2,12 @@
 
 #include <algorithm>
 #include <chrono>
-#include <optional>
+
+#include "common.hpp"
 
 
 template <typename C1, typename C2>
-auto combined_timeout(std::optional<std::chrono::milliseconds> timeout, C1 first, C2 second)
-    -> decltype(second(timeout))
+auto combined_timeout(Timeout timeout, C1 first, C2 second) -> decltype(second(timeout))
 {
     using namespace std::literals::chrono_literals;
 

@@ -68,7 +68,7 @@ void Event::reset()
 }
 
 // ReSharper disable once CppMemberFunctionMayBeConst
-bool Event::wait(std::optional<std::chrono::milliseconds> const timeout)
+bool Event::wait(Timeout const timeout)
 {
     DWORD milliseconds = INFINITE;
     if (timeout)

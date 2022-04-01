@@ -8,5 +8,6 @@
     <ClInclude Include="event.hpp" />
     <ClInclude Include="line.hpp" />
     <ClInclude Include="util.hpp" />
+    <ClInclude Include="common.hpp" />
   </ItemGroup>
 </Project>

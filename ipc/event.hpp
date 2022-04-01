@@ -1,10 +1,12 @@
 #pragma once
 
+#include <chrono>
 #include <optional>
 #include <string>
-#include <chrono>
 
 #include <Windows.h>
+
+#include "common.hpp"
 
 
 /**
@@ -53,5 +55,5 @@ public:
      * @returns true if the event was signaled within the allotted time,
                 false if the wait timed-out.
      */
-    bool wait(std::optional<std::chrono::milliseconds> timeout);
+    bool wait(Timeout timeout);
 };

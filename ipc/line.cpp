@@ -27,17 +27,11 @@ void Line::set_low()
     low_.set();
 }
 
-bool Line::wait_low(std::optional<std::chrono::milliseconds> const timeout)
-{
-    return low_.wait(timeout);
-}
+bool Line::wait_low(Timeout const timeout) { return low_.wait(timeout); }
 
-bool Line::wait_high(std::optional<std::chrono::milliseconds> const timeout)
-{
-    return high_.wait(timeout);
-}
+bool Line::wait_high(Timeout const timeout) { return high_.wait(timeout); }
 
-bool Line::wait_rising(std::optional<std::chrono::milliseconds> const timeout)
+bool Line::wait_rising(Timeout const timeout)
 {
     static_assert(bool {} == false);
     return combined_timeout(
@@ -46,7 +40,7 @@ bool Line::wait_rising(std::optional<std::chrono::milliseconds> const timeout)
         [this](auto const t) { return wait_high(t); });
 }
 
-bool Line::wait_falling(std::optional<std::chrono::milliseconds> const timeout)
+bool Line::wait_falling(Timeout const timeout)
 {
     static_assert(bool {} == false);
     return combined_timeout(

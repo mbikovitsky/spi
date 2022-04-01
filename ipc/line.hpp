@@ -1,8 +1,6 @@
 #pragma once
 
-#include <chrono>
-#include <optional>
-
+#include "common.hpp"
 #include "event.hpp"
 
 
@@ -38,20 +36,20 @@ public:
     /**
      * Waits until the line becomes low.
      */
-    bool wait_low(std::optional<std::chrono::milliseconds> timeout);
+    bool wait_low(Timeout timeout);
 
     /**
      * Waits until the line becomes high.
      */
-    bool wait_high(std::optional<std::chrono::milliseconds> timeout);
+    bool wait_high(Timeout timeout);
 
     /**
      * Waits for a rising edge (low-to-high transition) on the line.
      */
-    bool wait_rising(std::optional<std::chrono::milliseconds> timeout);
+    bool wait_rising(Timeout timeout);
 
     /**
      * Waits for a falling edge (high-to-low transition) on the line.
      */
-    bool wait_falling(std::optional<std::chrono::milliseconds> timeout);
+    bool wait_falling(Timeout timeout);
 };
