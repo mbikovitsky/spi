@@ -11,7 +11,7 @@ SPIMaster::SPIMaster(SPIBus bus, std::chrono::milliseconds const half_clock)
     bus_.sclk.set_low();
 }
 
-std::uint8_t SPIMaster::transact(std::uint8_t byte)
+std::uint8_t SPIMaster::transact(std::uint8_t const byte)
 {
     try
     {

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <algorithm>
 #include <chrono>
 #include <cstdint>
 
@@ -11,7 +10,7 @@
  * Represents an SPI master.
  *
  * @note    This implements SPI mode 0 (CPOL = 0, CPHA = 0),
- *          with MSB-first transfers.
+ *          with 8-bit MSB-first transfers.
  */
 class SPIMaster
 {
@@ -45,8 +44,11 @@ public:
     template <typename InputIt, typename OutputIt>
     void transact(InputIt input_first, InputIt input_last, OutputIt output_first)
     {
-        std::transform(input_first, input_last, output_first, [this](auto const byte) {
-            return transact(byte);
-        });
+        auto current_input  = input_first;
+        auto current_output = output_first;
+        for (; current_input != input_last; ++current_input, ++current_output)
+        {
+            *current_output = transact(*current_input);
+        }
     }
 };
