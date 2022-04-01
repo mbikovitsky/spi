@@ -28,6 +28,16 @@ public:
      */
     Event(bool manual_reset, bool initial_state, std::optional<std::wstring> const & name);
 
+    /**
+     * Creates or opens an event object.
+     *
+     * @param manual_reset  Indicates whether the event should be automatically reset
+     *                      after a wait is satisfied.
+     * @param initial_state Indicates whether the event is initially signaled.
+     * @param name          Optional name for the event object.
+     */
+    Event(bool manual_reset, bool initial_state, std::optional<std::string> const & name);
+
     ~Event();
 
     Event(Event const &) = delete;

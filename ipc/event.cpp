@@ -23,12 +23,32 @@ HANDLE create_event(bool const                          manual_reset,
     return handle;
 }
 
+HANDLE create_event(bool const                         manual_reset,
+                    bool const                         initial_state,
+                    std::optional<std::string> const & name)
+{
+    auto const handle =
+        CreateEventA(nullptr, manual_reset, initial_state, name ? name->c_str() : nullptr);
+    if (nullptr == handle)
+    {
+        throw std::runtime_error("CreateEventA failed");
+    }
+    return handle;
+}
+
 } // namespace
 
 
 Event::Event(bool const                          manual_reset,
              bool const                          initial_state,
              std::optional<std::wstring> const & name)
+    : event_(create_event(manual_reset, initial_state, name))
+{
+}
+
+Event::Event(bool const                         manual_reset,
+             bool const                         initial_state,
+             std::optional<std::string> const & name)
     : event_(create_event(manual_reset, initial_state, name))
 {
 }
