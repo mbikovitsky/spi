@@ -17,8 +17,8 @@ bool Line::read()
 
 void Line::set_high()
 {
-    high_.set();
     low_.reset();
+    high_.set();
 }
 
 void Line::set_low()
