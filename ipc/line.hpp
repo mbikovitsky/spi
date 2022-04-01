@@ -19,6 +19,13 @@ public:
     Line(Event low, Event high);
 
     /**
+     * Reads the current state of the line.
+     *
+     * @returns true if the line is high, false otherwise.
+     */
+    bool read();
+
+    /**
      * Sets the line to the high state.
      */
     void set_high();

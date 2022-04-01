@@ -8,6 +8,13 @@
 
 Line::Line(Event low, Event high) : low_(std::move(low)), high_(std::move(high)) {}
 
+bool Line::read()
+{
+    using namespace std::literals::chrono_literals;
+
+    return high_.wait(0ms);
+}
+
 void Line::set_high()
 {
     high_.set();
