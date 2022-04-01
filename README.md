@@ -5,6 +5,8 @@ communication.
 Inspired by [EventPipe](https://www.x86matthew.com/view_post?id=eventpipe)
 from x86matthew.
 
+![Recording of a master and slave programs sending data back and forth](demo.gif)
+
 ## Why?
 
 Why not?
