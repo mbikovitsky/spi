@@ -93,6 +93,7 @@
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <CreateHotpatchableImage>false</CreateHotpatchableImage>
       <AdditionalOptions>/Gw %(AdditionalOptions)</AdditionalOptions>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,6 +149,7 @@
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <CreateHotpatchableImage>false</CreateHotpatchableImage>
       <AdditionalOptions>/Gw %(AdditionalOptions)</AdditionalOptions>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
