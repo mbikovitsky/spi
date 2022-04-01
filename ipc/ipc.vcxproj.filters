@@ -3,11 +3,14 @@
   <ItemGroup>
     <ClCompile Include="event.cpp" />
     <ClCompile Include="line.cpp" />
+    <ClCompile Include="spi_master.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="event.hpp" />
     <ClInclude Include="line.hpp" />
     <ClInclude Include="util.hpp" />
     <ClInclude Include="common.hpp" />
+    <ClInclude Include="spi_master.hpp" />
+    <ClInclude Include="spi_bus.hpp" />
   </ItemGroup>
 </Project>
